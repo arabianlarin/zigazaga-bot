@@ -31,7 +31,7 @@ async def compare_att(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
-        await update.message.reply_text(f"Error: {e}")
+        await update.message.reply_text(f"Error: type names exactly as you see in your FPL squad")
 
 async def compare_def(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.replace("/compare_def", "").strip()
@@ -50,7 +50,7 @@ async def compare_def(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
-        await update.message.reply_text(f"Error: {e}")
+        await update.message.reply_text(f"Error: type names exactly as you see in your FPL squad")
 
 async def compare_gk(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.replace("/compare_gk", "").strip()
@@ -69,7 +69,7 @@ async def compare_gk(update: Update, context: ContextTypes.DEFAULT_TYPE):
         chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
-        await update.message.reply_text(f"Error: {e}")
+        await update.message.reply_text(f"Error: type names exactly as you see in your FPL squad")
 
 app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
