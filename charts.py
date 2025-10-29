@@ -81,8 +81,8 @@ def chart_player_comparison_att(player1, player2):
     return file_path
 
 def chart_player_comparison_def(player1, player2):
-    #global data
-    #data = get_player_data()
+    global data
+    data = get_player_data()
     metrics = ["TklW_Tackles", 'Blocks_Blocks', 'Int', "Clr", "defensive_contribution_per_90", 'CBIT/90', 'CS_percent', 'Err', 'expected_goals_conceded_per_90']
     
     scaler = MinMaxScaler()
@@ -147,8 +147,8 @@ def chart_player_comparison_def(player1, player2):
     return file_path
 
 def chart_player_comparison_gk(player1, player2):
-    #global data
-    #data = get_player_data()
+    global data
+    data = get_player_data()
     metrics = ["Save_percent", 'CS_percent', 'Save_percent_Penalty', "Err", 'expected_goals_conceded_per_90']
     
     scaler = MinMaxScaler()
