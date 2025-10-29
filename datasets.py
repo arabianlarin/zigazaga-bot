@@ -7,7 +7,7 @@ def get_player_data():
     fb = fbr.get_fbref_data()
     players = fa.get_bootstrap().players
     fb['name_norm'] = fb['Player'].apply(fbr.normalize_name)
-    players['name_norm'] = players['player_name'].apply(fbr.normalize_name)
+    players['name_norm'] = players['web_name'].apply(fbr.normalize_name)
     teams = fa.get_teams().teams
 
     fbref_names = fb['name_norm'].unique()
@@ -75,6 +75,6 @@ def get_player_data():
     full_data['Tackles Won %'] = round(full_data['TklW_Tackles']*100/full_data['Tkl_Tackles'], 2)
     full_data['Shots on Target %'] = round(full_data['SoT_per_90_Standard']/full_data['Sh_per_90_Standard'] * 100, 2)
     full_data['diff'] = round(full_data['G_minus_PK'] - full_data['npxG_Expected'], 2)
-    full_data['web_name'] = players['web_name'].apply(lambda x: fbr.normalize_name(x))
+    #full_data['web_name'] = players['web_name'].apply(lambda x: fbr.normalize_name(x))
 
     return full_data.fillna(0)
