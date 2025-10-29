@@ -40,14 +40,14 @@ async def compare_def(update: Update, context: ContextTypes.DEFAULT_TYPE):
     players = [p.strip() for p in text.split(",") if p.strip()]
 
     if len(players) < 2:
-        await update.message.reply_text("Usage: /compare player1, player2")
+        await update.message.reply_text("Usage: /compare_def player1, player2")
         return
 
     player1, player2 = players[0], players[1]
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
-        chart_path = ch.chart_player_comparison_att(player1, player2)
+        chart_path = ch.chart_player_comparison_def(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
         await update.message.reply_text(f"Error: type names exactly as you see in your FPL squad")
@@ -59,14 +59,14 @@ async def compare_gk(update: Update, context: ContextTypes.DEFAULT_TYPE):
     players = [p.strip() for p in text.split(",") if p.strip()]
 
     if len(players) < 2:
-        await update.message.reply_text("Usage: /compare player1, player2")
+        await update.message.reply_text("Usage: /compare_gk player1, player2")
         return
 
     player1, player2 = players[0], players[1]
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
-        chart_path = ch.chart_player_comparison_att(player1, player2)
+        chart_path = ch.chart_player_comparison_gk(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
         await update.message.reply_text(f"Error: type names exactly as you see in your FPL squad")
