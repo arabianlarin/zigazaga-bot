@@ -4,3 +4,4 @@ duckdb
 plotly
 rapidfuzz
 scikit-learn
+requests
