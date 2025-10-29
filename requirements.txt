@@ -3,3 +3,4 @@ pandas
 duckdb
 plotly
 rapidfuzz
+scikit-learn
