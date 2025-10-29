@@ -4,7 +4,7 @@ import charts as ch
 
 import os
 
-TOKEN = os.getenv('8007828935:AAGW5hG5GJ1f_vfX8mn3mu4Uhs79ehkB71w')
+TOKEN = os.getenv('8007828935:AAHq54YtPrLmJRxoFE7ZS92WAW_z_3icGs4')
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hi! Send Player1, Player2 to compare.')
