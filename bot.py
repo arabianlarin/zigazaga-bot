@@ -4,7 +4,7 @@ import charts as ch
 
 import os
 
-TOKEN = os.getenv('8007828935:AAGW5hG5GJ1f_vfX8mn3mu4Uhs79ehkB71w')
+TOKEN = '8007828935:AAGW5hG5GJ1f_vfX8mn3mu4Uhs79ehkB71w'
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hi! Send Player1, Player2 to compare.')
@@ -26,5 +26,5 @@ if __name__ == "__main__":
         listen="0.0.0.0",
         port=8080,
         url_path=TOKEN,
-        webhook_url=f"https://YOUR_CLOUD_RUN_URL/{TOKEN}"
+        #webhook_url=f"https://YOUR_CLOUD_RUN_URL/{TOKEN}"
     )
