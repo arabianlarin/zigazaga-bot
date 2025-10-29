@@ -7,7 +7,7 @@ from plotly.subplots import make_subplots
 import plotly.io as pio
 from sklearn.preprocessing import MinMaxScaler
 import fpl_api as fa
-from datasets import get_dataset, get_player_data
+from datasets import get_player_data
 
 def chart_player_comparison_att(player1, player2):
     global data
