@@ -55,14 +55,14 @@ def get_player_data():
     }
 
     players['name_norm'] = players['name_norm'].replace(manual_map)
-    fixtures = fa.get_fixtures()
+    #fixtures = fa.get_fixtures()
 
     full_data = duckdb.query('''
     select
     *
     from players pha
     left join teams t on pha.team = t.id
-    left join fixtures f on t.short_name = f.Team
+    #left join fixtures f on t.short_name = f.Team
     left join fb fpd on coalesce(pha.fbref_match, pha.name_norm) = fpd.name_norm-- and t.name = fpd.Squad
     '''
     ).to_df()
