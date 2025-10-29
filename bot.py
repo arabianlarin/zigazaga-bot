@@ -8,7 +8,7 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 print("Render TELEGRAM_TOKEN:", TELEGRAM_TOKEN)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hi! Send Player1, Player2 to compare.')
+    await update.message.reply_text('Hi!')
 
 async def compare(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) < 2:
