@@ -5,7 +5,6 @@ import unidecode
 import re
 from rapidfuzz import process, fuzz
 import pandas as pd
-import streamlit as st
 
 @st.cache_data(ttl=3600)
 def get_fbref_data():
