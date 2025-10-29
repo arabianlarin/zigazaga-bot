@@ -112,7 +112,7 @@ def fuzzy_match(name, choices, threshold=70):
 def normalize_name(name):
     name = unidecode.unidecode(name)  # remove accents
     name = name.replace(".", " ")
-    name = re.sub(r"[^a-zA-Z\s]", "", name)  # remove punctuation
+    name = re.sub(r"[^a-zA-Z\s]", " ", name)  # remove punctuation
     name = re.sub(r"\s+", " ", name).strip().lower()  # normalize spaces + lowercase
     return name
 
