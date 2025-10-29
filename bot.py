@@ -7,6 +7,8 @@ import os
 TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 print("Render TELEGRAM_TOKEN:", TELEGRAM_TOKEN)
 
+pio.kaleido.scope.chromium_args += ("--no-sandbox", "--disable-dev-shm-usage")
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hi!')
 
