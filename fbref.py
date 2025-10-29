@@ -10,9 +10,9 @@ import streamlit as st
 @st.cache_data(ttl=3600)
 def get_fbref_data():
     #subprocess.run(['Rscript', 'fetch_fbref_data.R'], check=True)
-    #fbref_data = pd.read_csv('data/fbref_data.csv')
-    url = "https://raw.githubusercontent.com/arabianlarin/fpl-dashboard/data/fbref_data.csv"
-    fbref_data = pd.read_csv(url)
+    fbref_data = pd.read_csv('data/fbref_data.csv')
+    #url = "https://raw.githubusercontent.com/arabianlarin/fpl-dashboard/data/fbref_data.csv"
+    #fbref_data = pd.read_csv(url)
     fbref_data = duckdb.query('''
     select
     dst.Player,
