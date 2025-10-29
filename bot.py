@@ -26,5 +26,6 @@ if __name__ == "__main__":
     app.run_webhook(
         listen="0.0.0.0",
         port=8080,
-        url_path=TELEGRAM_TOKEN
+        url_path=TELEGRAM_TOKEN,
+        #webhook_url=f"https://YOUR_CLOUD_RUN_URL/{TOKEN}"
     )
