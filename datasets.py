@@ -1,6 +1,5 @@
 import duckdb
 import fpl_api as fa
-import streamlit as st
 import fbref as fbr
 import pandas as pd
 
