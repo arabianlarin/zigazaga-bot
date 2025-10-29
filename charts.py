@@ -5,10 +5,6 @@ import plotly.colors as pc
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.io as pio
-import ipywidgets as widgets
-from PIL import Image
-from IPython.display import display, clear_output
-from ipywidgets import interact, Dropdown, Output, VBox, HBox
 from sklearn.preprocessing import MinMaxScaler
 import fpl_api as fa
 from datasets import get_dataset, get_player_data
@@ -34,28 +30,6 @@ def chart_player_comparison_att(player1, player2):
         rows=1, cols=3,
         column_widths=[0.25, 0.5, 0.25],
         specs=[[{"type": "xy"}, {"type": "polar"}, {"type": "xy"}]],
-    )
-
-    fig.add_layout_image(
-        dict(
-            source=Image.open(f"photos/{ph1}"),
-            xref="paper", yref="paper",
-            x=0.13, y=0.6,
-            sizex=0.72, sizey=0.85,
-            xanchor="center", yanchor="middle",
-            layer="below"
-        )
-    )
-
-    fig.add_layout_image(
-        dict(
-            source=Image.open(f"photos/{ph2}"),
-            xref="paper", yref="paper",
-            x=0.87, y=0.6,
-            sizex=0.72, sizey=0.85,
-            xanchor="center", yanchor="middle",
-            layer="below"
-        )
     )
     
     # --- Plotly radar chart ---
