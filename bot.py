@@ -8,9 +8,13 @@ TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 print("Render TELEGRAM_TOKEN:", TELEGRAM_TOKEN)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text('Hi!')
+    await update.message.reply_text('''Hi!
+    /compare_att - Compare attacking stats
+    /compare_def - Compare defending stats
+    /compare_gk - Compare GK stats
+    ''')
 
-async def compare(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def compare_att(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) < 2:
         await update.message.reply_text("Usage: /compare player1 player2")
         return
@@ -24,9 +28,39 @@ async def compare(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"Error: {e}")
 
+async def compare_def(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if len(context.args) < 2:
+        await update.message.reply_text("Usage: /compare player1 player2")
+        return
+
+    player1, player2 = context.args[0], context.args[1]
+    await update.message.reply_text(f"Comparing {player1} vs {player2}...")
+
+    try:
+        chart_path = ch.chart_player_comparison_def(player1, player2)
+        await update.message.reply_photo(photo=open(chart_path, 'rb'))
+    except Exception as e:
+        await update.message.reply_text(f"Error: {e}")
+
+async def compare_gk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if len(context.args) < 2:
+        await update.message.reply_text("Usage: /compare player1 player2")
+        return
+
+    player1, player2 = context.args[0], context.args[1]
+    await update.message.reply_text(f"Comparing {player1} vs {player2}...")
+
+    try:
+        chart_path = ch.chart_player_comparison_gk(player1, player2)
+        await update.message.reply_photo(photo=open(chart_path, 'rb'))
+    except Exception as e:
+        await update.message.reply_text(f"Error: {e}")
+
 app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("compare", compare))
+app.add_handler(CommandHandler("compare_att", compare_att))
+app.add_handler(CommandHandler("compare_def", compare_def))
+app.add_handler(CommandHandler("compare_gk", compare_gk))
 #app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
 
 if __name__ == "__main__":
