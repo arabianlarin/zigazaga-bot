@@ -5,6 +5,7 @@ import charts as ch
 import os
 
 TOKEN = os.getenv('8007828935:AAHq54YtPrLmJRxoFE7ZS92WAW_z_3icGs4')
+print("Render TELEGRAM_TOKEN:", TOKEN)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text('Hi! Send Player1, Player2 to compare.')
