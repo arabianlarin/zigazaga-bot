@@ -7,7 +7,8 @@ def get_player_data():
     fb = fbr.get_fbref_data()
     players = fa.get_bootstrap().players
     fb['name_norm'] = fb['Player'].apply(fbr.normalize_name)
-    players['name_norm'] = players['web_name'].apply(fbr.normalize_name)
+    players['name_norm'] = players['player_name'].apply(fbr.normalize_name)
+    players['web_name'] = players['web_name'].apply(fbr.normalize_name)
     teams = fa.get_teams().teams
 
     fbref_names = fb['name_norm'].unique()
