@@ -6,7 +6,7 @@ import re
 from rapidfuzz import process, fuzz
 import pandas as pd
 
-@st.cache_data(ttl=3600)
+#@st.cache_data(ttl=3600)
 def get_fbref_data():
     #subprocess.run(['Rscript', 'fetch_fbref_data.R'], check=True)
     fbref_data = pd.read_csv('data/fbref_data.csv')
