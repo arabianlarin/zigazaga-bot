@@ -9,6 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 import fpl_api as fa
 from datasets import get_player_data
 import matplotlib.pyplot as plt
+import numpy as np
 
 def chart_player_comparison_att(player1, player2):
     # global data
