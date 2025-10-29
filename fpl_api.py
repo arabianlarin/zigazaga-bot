@@ -21,7 +21,7 @@ def get_positions():
             'position': ['Goalkeeper', 'Defender', 'Midfielder', 'Forward']
             })
 
-@st.cache_data(ttl=3600)
+#@st.cache_data(ttl=3600)
 def get_bootstrap():
     url = 'https://fantasy.premierleague.com/api/bootstrap-static/'
     response = requests.get(url)
@@ -67,7 +67,7 @@ def get_bootstrap():
 #     players = pd.DataFrame(data['elements'])
 #     return players[['id', 'web_name', 'first_name', 'second_name', 'team', 'element_type', 'now_cost', 'selected_by_percent', 'total_points']]
 
-@st.cache_data(ttl=3600)
+#@st.cache_data(ttl=3600)
 def get_teams():
     url = 'https://fantasy.premierleague.com/api/bootstrap-static/'
     response = requests.get(url)
