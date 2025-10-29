@@ -15,11 +15,16 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ''')
 
 async def compare_att(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if len(context.args) < 2:
-        await update.message.reply_text("Usage: /compare player1 player2")
+    text = update.message.text.replace("/compare_att", "").strip()
+
+    # Split by comma and clean whitespace
+    players = [p.strip() for p in text.split(",") if p.strip()]
+
+    if len(players) < 2:
+        await update.message.reply_text("Usage: /compare_att player1, player2")
         return
 
-    player1, player2 = context.args[0], context.args[1]
+    player1, player2 = players[0], players[1]
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
@@ -29,29 +34,39 @@ async def compare_att(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"Error: {e}")
 
 async def compare_def(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if len(context.args) < 2:
-        await update.message.reply_text("Usage: /compare player1 player2")
+    text = update.message.text.replace("/compare_def", "").strip()
+
+    # Split by comma and clean whitespace
+    players = [p.strip() for p in text.split(",") if p.strip()]
+
+    if len(players) < 2:
+        await update.message.reply_text("Usage: /compare player1, player2")
         return
 
-    player1, player2 = context.args[0], context.args[1]
+    player1, player2 = players[0], players[1]
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
-        chart_path = ch.chart_player_comparison_def(player1, player2)
+        chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
         await update.message.reply_text(f"Error: {e}")
 
 async def compare_gk(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if len(context.args) < 2:
-        await update.message.reply_text("Usage: /compare player1 player2")
+    text = update.message.text.replace("/compare_gk", "").strip()
+
+    # Split by comma and clean whitespace
+    players = [p.strip() for p in text.split(",") if p.strip()]
+
+    if len(players) < 2:
+        await update.message.reply_text("Usage: /compare player1, player2")
         return
 
-    player1, player2 = context.args[0], context.args[1]
+    player1, player2 = players[0], players[1]
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
-        chart_path = ch.chart_player_comparison_gk(player1, player2)
+        chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
         await update.message.reply_text(f"Error: {e}")
