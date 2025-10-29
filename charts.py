@@ -16,8 +16,8 @@ def chart_player_comparison_att(player1, player2):
     scaler = MinMaxScaler()
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
-    p1 = df_scaled[df_scaled["Player"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["Player"] == player2][metrics].values.flatten()
+    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
     
     metrics_closed = metrics + [metrics[0]]
     p1 = list(p1) + [p1[0]]
@@ -72,8 +72,10 @@ def chart_player_comparison_att(player1, player2):
         height=500, # 👈 increase size
         margin=dict(l=20, r=20, t=80, b=20)
     )
-
-    return fig
+    
+    file_path = f"comparison_{player1}_{player2}.png"
+    pio.write_image(fig, file_path)
+    return file_path
 
 def chart_player_comparison_def(player1, player2):
     #global data
@@ -82,11 +84,8 @@ def chart_player_comparison_def(player1, player2):
     scaler = MinMaxScaler()
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
-    p1 = df_scaled[df_scaled["Player"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["Player"] == player2][metrics].values.flatten()
-
-    ph1 = data.loc[data["Player"] == player1, "photo"].values[0]
-    ph2 = data.loc[data["Player"] == player2, "photo"].values[0]
+    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
     
     metrics_closed = metrics + [metrics[0]]
     p1 = list(p1) + [p1[0]]
@@ -164,7 +163,9 @@ def chart_player_comparison_def(player1, player2):
         margin=dict(l=20, r=20, t=80, b=20)
     )
 
-    return fig
+    file_path = f"comparison_{player1}_{player2}.png"
+    pio.write_image(fig, file_path)
+    return file_path
 
 def chart_player_comparison_gk(player1, player2):
     #global data
@@ -173,11 +174,8 @@ def chart_player_comparison_gk(player1, player2):
     scaler = MinMaxScaler()
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
-    p1 = df_scaled[df_scaled["Player"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["Player"] == player2][metrics].values.flatten()
-
-    ph1 = data.loc[data["Player"] == player1, "photo"].values[0]
-    ph2 = data.loc[data["Player"] == player2, "photo"].values[0]
+    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
     
     metrics_closed = metrics + [metrics[0]]
     p1 = list(p1) + [p1[0]]
@@ -255,4 +253,6 @@ def chart_player_comparison_gk(player1, player2):
         margin=dict(l=20, r=20, t=80, b=20)
     )
 
-    return fig
+    file_path = f"comparison_{player1}_{player2}.png"
+    pio.write_image(fig, file_path)
+    return file_path
