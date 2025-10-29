@@ -6,3 +6,4 @@ rapidfuzz
 scikit-learn
 requests
 unidecode
+kaleido
