@@ -5,3 +5,4 @@ plotly
 rapidfuzz
 scikit-learn
 requests
+unidecode
