@@ -19,7 +19,7 @@ async def compare(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(f"Comparing {player1} vs {player2}...")
 
     try:
-        chart_path = compare_players(player1, player2)
+        chart_path = ch.chart_player_comparison_att(player1, player2)
         await update.message.reply_photo(photo=open(chart_path, 'rb'))
     except Exception as e:
         await update.message.reply_text(f"Error: {e}")
