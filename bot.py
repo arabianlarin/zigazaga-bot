@@ -27,5 +27,5 @@ if __name__ == "__main__":
         listen="0.0.0.0",
         port=8080,
         url_path=TELEGRAM_TOKEN,
-        webhook_url=f"https://zigazaga-bot.onrender.com/{TOKEN}"
+        webhook_url=f"https://zigazaga-bot.onrender.com/{TELEGRAM_TOKEN}"
     )
