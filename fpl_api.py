@@ -3,7 +3,6 @@ import pandas as pd
 from datetime import datetime
 import os
 from time import sleep
-import streamlit as st
 import duckdb
 
 class teamsData:
