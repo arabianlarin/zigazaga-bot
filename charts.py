@@ -18,9 +18,6 @@ def chart_player_comparison_att(player1, player2):
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
     p1 = df_scaled[df_scaled["Player"] == player1][metrics].values.flatten()
     p2 = df_scaled[df_scaled["Player"] == player2][metrics].values.flatten()
-
-    ph1 = data.loc[data["Player"] == player1.strip(), "photo"].values[0]
-    ph2 = data.loc[data["Player"] == player2.strip(), "photo"].values[0]
     
     metrics_closed = metrics + [metrics[0]]
     p1 = list(p1) + [p1[0]]
