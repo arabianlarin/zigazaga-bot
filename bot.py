@@ -4,7 +4,7 @@ import charts as ch
 
 import os
 
-TELEGRAM_TOKEN = os.getenv('8007828935:AAHq54YtPrLmJRxoFE7ZS92WAW_z_3icGs4')
+TELEGRAM_TOKEN = os.getenv('TELEGRAM_TOKEN')
 print("Render TELEGRAM_TOKEN:", TELEGRAM_TOKEN)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
