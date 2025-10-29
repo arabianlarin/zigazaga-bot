@@ -21,8 +21,8 @@ def chart_player_comparison_att(player1, player2):
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
     
-    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
+    p1 = df_scaled[df_scaled["name_norm"] == player1.lower()][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["name_norm"] == player2.lower()][metrics].values.flatten()
     
     # Labels for the radar chart
     labels = ['Shots/90', 'Shots on Target/90', 'G+A/90', 'xG/90', 
@@ -90,8 +90,8 @@ def chart_player_comparison_def(player1, player2):
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
     
-    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
+    p1 = df_scaled[df_scaled["name_norm"] == player1.lower()][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["name_norm"] == player2.lower()][metrics].values.flatten()
 
     labels = ['Tackles Won/90', 'Blocks/90', 'Interceptions/90', 'Clearances/90', 'DefCon/90', 'CBIT/90', 'Clean Sheets %', 'Errors Lead to Shot/90', 'xGC']
     
@@ -156,8 +156,8 @@ def chart_player_comparison_gk(player1, player2):
     df_scaled = data.copy()
     df_scaled[metrics] = scaler.fit_transform(data[metrics])
     
-    p1 = df_scaled[df_scaled["web_name"] == player1][metrics].values.flatten()
-    p2 = df_scaled[df_scaled["web_name"] == player2][metrics].values.flatten()
+    p1 = df_scaled[df_scaled["name_norm"] == player1.lower()][metrics].values.flatten()
+    p2 = df_scaled[df_scaled["name_norm"] == player2.lower()][metrics].values.flatten()
 
     labels = ['Saves %/90', 'Clean Sheets %', 'Saved Penalties %', 'Errors Lead to Shot/90', 'xGC']
     
