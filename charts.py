@@ -15,7 +15,7 @@ def chart_player_comparison_att(player1, player2):
     global data
     data = get_player_data()
     metrics = ["Sh_per_90_Standard", 'SoT_per_90_Standard', 'G+A_Per', 
-               "xpxG_Expected", "xA_Expected", 'KP', 'creativity', 'threat']
+               "npxG_Expected", "xA_Expected", 'KP', 'creativity', 'threat']
     
     scaler = MinMaxScaler()
     df_scaled = data.copy()
