@@ -25,7 +25,7 @@ def chart_player_comparison_att(player1, player2):
     p2 = df_scaled[df_scaled["web_name"] == player2.lower()][metrics].values.flatten()
     
     # Labels for the radar chart
-    labels = ['Shots/90', 'Shots on Target/90', 'G+A/90', 'xG/90', 
+    labels = ['Shots/90', 'Shots on Target/90', 'G+A/90', 'npxG/90', 
               'xA/90', 'Key Passes/90', 'Creativity', 'Threat']
     
     # Number of variables
