@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Ping Render Bot
         run: |
-          curl -s -o /dev/null -w "%{http_code}\n" https://your-bot-name.onrender.com
+          curl -s -o /dev/null -w "%{http_code}\n" https://zigazaga-bot.onrender.com
